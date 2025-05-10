@@ -41,18 +41,17 @@ export default function HomePage() {
         titleRef.current,
         { opacity: 0, y: 30 },
         { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' },
-        '-=0.5' // Start 0.5s after the previous animation begins (adjust timing as needed)
+        '-=0.5'
       );
     }
 
-    // Animate links container's children
+    // Animate social links
     if (linksRef.current) {
-      // The children (<a> tags) will be animated from opacity 0
       tl.fromTo(
         linksRef.current.children,
-        { opacity: 0, scale: 0.5, y: 20 }, // Added y for a slight upward motion
+        { opacity: 0, scale: 0.5, y: 20 },
         { opacity: 1, scale: 1, y: 0, duration: 0.5, stagger: 0.2, ease: 'back.out(1.7)' },
-        '-=0.3' // Start 0.3s after the previous title animation begins
+        '-=0.3'
       );
     }
   }, []);
