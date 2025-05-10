@@ -58,13 +58,13 @@ export default function AboutPage() {
 
           <div ref={descriptionRef} className="text-lg md:text-xl text-slate-300 leading-relaxed mb-12 opacity-0 text-justify">
             <p className="mb-4">
-              I'm currently pursuing a bachelor's degree in Computing, Computer Science, specialising in Networks and Distributed Systems!
+              I&apos;m currently pursuing a bachelor&apos;s degree in Computing, Computer Science, specialising in Networks and Distributed Systems!
             </p>
             <p className="mb-4">
               My personal hobbies include drinking Chagee, making matcha, and doomscrolling TikTok.
             </p>
             <p>
-              When people ask me if I love 'CS', I reply with a resounding YES, but they don't actually
+              When people ask me if I love &apos;CS&apos;, I reply with a resounding YES, but they don&apos;t actually
               know that I meant being a Chaewon Simp...
             </p>
           </div>
