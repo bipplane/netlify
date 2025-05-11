@@ -6,7 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function AboutPage() {
+export default function ProjectPage() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
   const descriptionRef = useRef<HTMLParagraphElement>(null);
@@ -14,7 +14,7 @@ export default function AboutPage() {
 
   useEffect(() => {
     if (!sectionRef.current) return;
-    
+
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: sectionRef.current,
