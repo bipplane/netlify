@@ -6,7 +6,6 @@ import { usePathname, useRouter } from 'next/navigation';
 
 export default function Header() {
   const pathname = usePathname();
-  const router = useRouter();
 
   const navLinks = [
     { name: 'Home', href: '/', sectionId: 'home', basePage: '/' },

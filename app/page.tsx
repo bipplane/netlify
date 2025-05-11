@@ -5,6 +5,8 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Head from 'next/head'; 
 
+gsap.registerPlugin(ScrollTrigger);
+
 import AboutSection from '@/components/aboutme'; // Adjust path if needed
 import ProjectsSection from '@/components/projects'; // Adjust path if needed
 
@@ -58,14 +60,6 @@ export default function HomePage() {
         '-=0.3'
       );
     }
-
-    const tlAbout = gsap.timeline({
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: "top 80%",
-        toggleActions: "play none none resume" 
-      }
-    });
 
     const scrollToSectionWithOffset = (sectionId: string) => {
       const targetElement = document.getElementById(sectionId);
