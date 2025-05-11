@@ -3,8 +3,9 @@
 import { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { gsap } from 'gsap';
-import Head from 'next/head';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function AboutPage() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -13,6 +14,8 @@ export default function AboutPage() {
   const imagesRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (!sectionRef.current) return;
+    
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: sectionRef.current,
@@ -54,14 +57,13 @@ export default function AboutPage() {
         </h2>
         <div ref={descriptionRef} className="text-lg md:text-xl text-slate-300 leading-relaxed mb-12 opacity-0 text-justify">
           <p className="mb-4">
-            I'm currently pursuing a bachelor's degree in Computing, Computer Science, specialising in Networks and Distributed Systems!
+            I&apos;m currently pursuing a bachelor&apos;s degree in Computing, Computer Science, specialising in Networks and Distributed Systems!
           </p>
           <p className="mb-4">
             My personal hobbies include drinking Chagee, making matcha, and doomscrolling TikTok 🥀.
           </p>
           <p>
-            When people ask me if I love 'CS', I reply with a resounding YES, but they don't actually
-            know that I meant being a Chaewon Simp...
+            I love Chaewon btw
           </p>
         </div>
         <div ref={imagesRef} className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-12">

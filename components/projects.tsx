@@ -3,7 +3,8 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Head from 'next/head';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function AboutPage() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -12,6 +13,8 @@ export default function AboutPage() {
   const imagesRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (!sectionRef.current) return;
+    
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: sectionRef.current,
