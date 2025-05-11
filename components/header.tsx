@@ -1,43 +1,73 @@
-'use client'; // This component uses client-side hooks (usePathname)
+// components/header.tsx
+'use client';
 
 import Link from 'next/link';
-import { usePathname } from 'next/navigation'; // To highlight active link
+import { usePathname, useRouter } from 'next/navigation';
 
 export default function Header() {
   const pathname = usePathname();
+  const router = useRouter();
 
   const navLinks = [
-    { name: 'Home', href: '/' },
-    { name: 'About Me', href: '/about' },
-    { name: 'Projects', href: '/projects' }
-    // Add more links here in the future (e.g., { name: 'Projects', href: '/projects' })
+    { name: 'Home', href: '/', sectionId: 'home', basePage: '/' },
+    { name: 'About Me', href: '/#about-me', sectionId: 'about-me', basePage: '/' },
+    { name: 'Projects', href: '/#projects', sectionId: 'projects', basePage: '/' },
   ];
+
+  const handleLinkClick = (
+    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+    href: string,
+    sectionId?: string,
+    basePage?: string
+  ) => {
+    if (sectionId && basePage) {
+      if (pathname === basePage) {
+        e.preventDefault(); // Stop Next.js Link from navigating
+        const targetElement = document.getElementById(sectionId);
+        if (targetElement) {
+          const headerEl = document.querySelector('header');
+          const headerHeight = headerEl ? headerEl.offsetHeight : 0;
+          const elementPosition = targetElement.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerHeight - 20;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth',
+          });
+        }
+      } else {
+      }
+    }
+  };
+
 
   return (
     <header className="bg-slate-800/80 backdrop-blur-md text-white sticky top-0 z-50 shadow-lg">
       <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
-        <Link href="/" legacyBehavior>
-          <a className="text-2xl font-bold text-sky-300 hover:text-sky-200 transition-colors">
-            Ryan Chen
-          </a>
+        <Link href="/" className="text-2xl font-bold text-sky-300 hover:text-sky-200 transition-colors text-purple-400">
+          Ryan Chen
         </Link>
         <ul className="flex space-x-6 items-center">
-          {navLinks.map((link) => {
-            const isActive = pathname === link.href;
+          {navLinks.map((linkItem) => {
+            let isActive = false;
+            if (linkItem.sectionId && linkItem.basePage === pathname) {
+              // Active if on the base page and the hash matches the sectionId
+              isActive = typeof window !== 'undefined' && window.location.hash === `#${linkItem.sectionId}`;
+            }
+
             return (
-              <li key={link.name}>
-                <Link href={link.href} legacyBehavior>
-                  <a
-                    className={`
-                      text-lg 
-                      hover:text-sky-300 
-                      transition-colors 
-                      duration-200
-                      ${isActive ? 'text-sky-300 font-semibold border-b-2 border-sky-300 pb-1' : 'text-slate-300'}
-                    `}
-                  >
-                    {link.name}
-                  </a>
+              <li key={linkItem.name}>
+                <Link
+                  href={linkItem.href}
+                  onClick={(e) => handleLinkClick(e, linkItem.href, linkItem.sectionId, linkItem.basePage)}
+                  className={`
+                    text-lg cursor-pointer
+                    hover:text-sky-300
+                    transition-colors duration-200
+                    ${isActive ? 'text-sky-300 font-semibold border-b-2 border-sky-300 pb-1' : 'text-slate-300'}
+                  `}
+                >
+                  {linkItem.name}
                 </Link>
               </li>
             );

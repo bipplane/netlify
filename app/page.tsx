@@ -2,9 +2,12 @@
 
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
-import Head from 'next/head'; // For better SEO and tab title
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Head from 'next/head'; 
 
-// SVG Icon Components (these should render if their container is visible)
+import AboutSection from '@/components/aboutme'; // Adjust path if needed
+import ProjectsSection from '@/components/projects'; // Adjust path if needed
+
 const LinkedinIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
     <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
@@ -22,6 +25,7 @@ export default function HomePage() {
   const nameRef = useRef<HTMLHeadingElement>(null);
   const titleRef = useRef<HTMLParagraphElement>(null);
   const linksRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const tl = gsap.timeline();
@@ -54,25 +58,62 @@ export default function HomePage() {
         '-=0.3'
       );
     }
+
+    const tlAbout = gsap.timeline({
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: "top 80%",
+        toggleActions: "play none none resume" 
+      }
+    });
+
+    const scrollToSectionWithOffset = (sectionId: string) => {
+      const targetElement = document.getElementById(sectionId);
+      if (targetElement) {
+        const header = document.querySelector('header');
+        const headerHeight = header ? header.offsetHeight : 0;
+        const elementPosition = targetElement.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerHeight - 20; // 20px padding
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth',
+        });
+      }
+    };
+
+    // --- Check for URL hash on initial load and after navigation ---
+    const handleHashChange = () => {
+      if (typeof window !== 'undefined' && window.location.hash) {
+        const hash = window.location.hash.substring(1); // Remove #
+        if (hash) {
+          // Delay slightly to ensure DOM is ready and layout is stable
+          setTimeout(() => scrollToSectionWithOffset(hash), 100);
+        }
+      }
+    };
+
+    // Initial check
+    handleHashChange();
   }, []);
 
   return (
     <>
       {/* This Head component is for the browser tab title and meta description */}
       <Head>
-        <title>Ryan Chen - CS Student @ NUS</title>
+        <title>Ryan Chen - NUS CS</title>
         <meta name="description" content="Ryan Chen's personal website." />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-slate-900 to-slate-800 text-white p-8 antialiased">
+      <section id="home" className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-slate-900 to-slate-800 text-white p-8 antialiased">
         <div className="text-center">
-          <h1 ref={nameRef} className="text-5xl md:text-7xl font-bold mb-3 opacity-0">
+            <h1 ref={nameRef} className="text-5xl md:text-7xl font-bold mb-3 pb-3 opacity-0 brightness-90">
             Ryan Chen
-          </h1>
-          <p ref={titleRef} className="text-xl md:text-2xl text-sky-300 mb-10 opacity-0">
-            Y3 Computer Science Student
+            </h1>
+            <p ref={titleRef} className="text-xl md:text-2xl text-transparent bg-clip-text bg-gradient-to-r from-sky-500 to-fuchsia-400 mb-10 opacity-0">
+            Y3 Computer Science Student at the
             <br className="sm:hidden"/> {/* Break line on small screens for better layout */}
-            <span className="hidden sm:inline"> at the </span>
             <span className="block sm:inline">National University of Singapore</span>
           </p>
 
@@ -99,11 +140,16 @@ export default function HomePage() {
             </a>
           </div>
         </div>
+      </section>
+      <div className="w-full h-1.5 bg-gradient-to-r from-sky-500 to-fuchsia-400"></div>
+      <AboutSection/>
 
-        <footer className="absolute bottom-4 text-xs text-slate-500">
+      <div className="w-full h-1.5 bg-gradient-to-r from-sky-500 to-fuchsia-400"></div>
+      <ProjectsSection/>
+
+        <footer className="absolute bottom-4 text-xs text-slate-500 text-center w-full">
           Built with Next.js, Tailwind CSS & GSAP.
         </footer>
-      </main>
     </>
   );
 }
