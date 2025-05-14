@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css'
 import Header from '@/components/header';
+import GlowingCursor from './cursor';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -21,6 +22,7 @@ export default function RootLayout({
       <body className={`${inter.className} bg-slate-900 overflow-x-hidden`}>
         <Header />
         <main className="overflow-x-hidden w-full">{children}</main>
+        <GlowingCursor/>
       </body>
     </html>
   );

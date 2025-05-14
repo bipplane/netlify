@@ -35,6 +35,33 @@ const EmailIcon = () => (
   </svg>
 );
 
+const GradientDivider = () => {
+  useEffect(() => {
+    if (!document.querySelector('#gradient-animation-style')) {
+      const styleEl = document.createElement('style');
+      styleEl.id = 'gradient-animation-style';
+      styleEl.innerHTML = `
+        @keyframes gradientShift {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+      `;
+      document.head.appendChild(styleEl);
+    }
+  }, []);
+
+  return (
+    <div
+      className="w-full h-1.5"
+      style={{
+        background: 'linear-gradient(to right, #38bdf8, #818cf8, #c084fc, #e879f9, #38bdf8)',
+        backgroundSize: '200% auto',
+        animation: 'gradientShift 10s ease infinite',
+      }}
+    ></div>
+  );
+};
 
 
 export default function HomePage() {
@@ -104,7 +131,7 @@ export default function HomePage() {
     handleHashChange();
   }, []);
 
-  // Add this style object for the animated gradient text
+  // Add this style object for colourful and magical gradient text
   const animatedGradientStyle = {
     background: 'linear-gradient(to right, #38bdf8, #818cf8, #c084fc, #e879f9, #38bdf8)',
     backgroundSize: '200% auto',
@@ -114,9 +141,7 @@ export default function HomePage() {
     color: 'transparent',
   };
 
-  // Add this for the keyframes animation
   useEffect(() => {
-    // Add keyframes animation to document if it doesn't exist
     if (!document.querySelector('#gradient-animation-style')) {
       const styleEl = document.createElement('style');
       styleEl.id = 'gradient-animation-style';
@@ -163,7 +188,7 @@ export default function HomePage() {
               className="text-slate-300 hover:text-sky-400 transition-all duration-300 flex items-center space-x-2 group w-full sm:w-auto justify-center sm:justify-start"
               aria-label="Resume"
             >
-              <ResumeIcon />
+              <ResumeIcon/>
               <span className="group-hover:underline transition-all duration-200 hover:scale-105">My Resume</span>
             </a>
             <a
@@ -173,7 +198,7 @@ export default function HomePage() {
               className="text-slate-300 hover:text-sky-400 transition-all duration-300 flex items-center space-x-2 group w-full sm:w-auto justify-center sm:justify-start"
               aria-label="LinkedIn Profile"
             >
-              <LinkedinIcon />
+              <LinkedinIcon/>
               <span className="group-hover:underline transition-all duration-200 hover:scale-105">LinkedIn</span>
             </a>
             <a
@@ -183,7 +208,7 @@ export default function HomePage() {
               className="text-slate-300 hover:text-sky-400 transition-all duration-300 flex items-center space-x-2 group w-full sm:w-auto justify-center sm:justify-start"
               aria-label="GitHub Profile"
             >
-              <GithubIcon />
+              <GithubIcon/>
               <span className="group-hover:underline transition-all duration-200 hover:scale-105">GitHub</span>
             </a>
             <a
@@ -193,19 +218,19 @@ export default function HomePage() {
               className="text-slate-300 hover:text-sky-400 transition-all duration-300 flex items-center space-x-2 group w-full sm:w-auto justify-center sm:justify-start"
               aria-label="Email Address"
             >
-              <EmailIcon />
+              <EmailIcon/>
               <span className="group-hover:underline transition-all duration-200 hover:scale-105">Email Me!</span>
             </a>
           </div>
         </div>
       </section>
-      <div className="w-full h-1.5 bg-gradient-to-r from-sky-500 to-fuchsia-400"></div>
+      <GradientDivider/>
       <AboutSection/>
 
-      <div className="w-full h-1.5 bg-gradient-to-r from-sky-500 to-fuchsia-400"></div>
+      <GradientDivider/>      
       <WorkExperienceSection/>
 
-      <div className="w-full h-1.5 bg-gradient-to-r from-sky-500 to-fuchsia-400"></div>
+      <GradientDivider/>
       <ProjectsSection/>
 
         <footer className="absolute bottom-4 text-xs text-slate-500 text-center w-full">
