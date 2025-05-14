@@ -14,7 +14,7 @@ export default function WorkExperienceSection() {
   const timelineRef = useRef<HTMLDivElement>(null);
   const timelineLineRef = useRef<HTMLDivElement>(null);
 
-  // Work experience data 
+  // Work experience 
   const experiences = [
     {
       company: 'Home Team Science and Technology Agency (HTX)',
@@ -55,7 +55,7 @@ export default function WorkExperienceSection() {
       tl.fromTo(
         timelineLineRef.current,
         { height: 0, opacity: 0 },
-        { height: '100%', opacity: 1, duration: 1.2, ease: 'power3.inOut' },
+        { height: '100%', opacity: 1, duration: 1.1, ease: 'power3.inOut' },
         '-=0.3'
       );
     }
@@ -70,10 +70,10 @@ export default function WorkExperienceSection() {
           opacity: 1, 
           y: 0, 
           duration: 0.5, 
-          stagger: 0.2, 
+          stagger: 0.15,
           ease: 'power3.out' 
         },
-        '-=0.8'  // Start slightly earlier to overlap with the line animation
+        '-=0.9'
       );
     }
   }, []);
@@ -108,7 +108,7 @@ export default function WorkExperienceSection() {
                 <div className="col-span-4 pl-35">
                   <div className="flex items-center mb-3 pb-1">
                     {exp.logo && (
-                      <div className="mr-3 bg-white p-1 rounded-md shadow-md flex-shrink-0">
+                      <div className="mr-3 bg-white p-1 rounded-md shadow-md flex-shrink-0 transition-transform duration-300 hover:scale-115">
                         {isExternalUrl(exp.logo) ? (
                           // External URL
                           <Image 
@@ -131,13 +131,13 @@ export default function WorkExperienceSection() {
                         )}
                       </div>
                     )}
-                    <Link href={exp.companyUrl} target="_blank" rel="noopener noreferrer">
+                    <Link href={exp.companyUrl} target="_blank" rel="noopener noreferrer" className="transition-transform duration-300 hover:scale-105 inline-block">
                       <h4 className="text-lg font-semibold text-sky-300 hover:text-sky-200 transition-colors pl-3">
                         {exp.company}
                       </h4>
                     </Link>
                   </div>
-                    <div className="w-15 h-1 bg-slate-700"></div>
+                  <div className="w-15 h-1 bg-slate-700"></div>
                   <div className="mt-2 pt-1"> {/* Added a container with top margin */}
                     <p className="text-slate-300 mb-4">{exp.description}</p>
                     

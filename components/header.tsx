@@ -41,7 +41,7 @@ export default function Header() {
 
 
   return (
-    <header className="bg-slate-800/80 backdrop-blur-md text-white sticky top-0 z-50 shadow-lg">
+    <header className="bg-slate-900/80 backdrop-blur-md text-white sticky top-0 z-50 shadow-lg">
       <nav className="container mx-auto px-6 py-4 flex justify-center items-center">
         <ul className="flex space-x-8 items-center">
           {navLinks.map((linkItem) => {
@@ -59,7 +59,8 @@ export default function Header() {
                   className={`
                     text-lg cursor-pointer
                     hover:text-sky-300
-                    transition-colors duration-200
+                    transition-all duration-200
+                    inline-block hover:scale-105
                     ${isActive ? 'text-sky-300 font-semibold border-b-2 border-sky-300 pb-1' : 'text-slate-300'}
                   `}
                 >

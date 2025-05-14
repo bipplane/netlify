@@ -104,6 +104,33 @@ export default function HomePage() {
     handleHashChange();
   }, []);
 
+  // Add this style object for the animated gradient text
+  const animatedGradientStyle = {
+    background: 'linear-gradient(to right, #38bdf8, #818cf8, #c084fc, #e879f9, #38bdf8)',
+    backgroundSize: '200% auto',
+    animation: 'gradientShift 7s ease infinite',
+    WebkitBackgroundClip: 'text',
+    backgroundClip: 'text',
+    color: 'transparent',
+  };
+
+  // Add this for the keyframes animation
+  useEffect(() => {
+    // Add keyframes animation to document if it doesn't exist
+    if (!document.querySelector('#gradient-animation-style')) {
+      const styleEl = document.createElement('style');
+      styleEl.id = 'gradient-animation-style';
+      styleEl.innerHTML = `
+        @keyframes gradientShift {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+      `;
+      document.head.appendChild(styleEl);
+    }
+  }, []);
+
   return (
     <>
       {/* This Head component is for the browser tab title and meta description */}
@@ -118,11 +145,15 @@ export default function HomePage() {
             <h1 ref={nameRef} className="text-5xl md:text-7xl font-bold mb-3 pb-3 opacity-0 brightness-90">
             Ryan Chen
             </h1>
-            <p ref={titleRef} className="text-xl md:text-2xl text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-fuchsia-400 mb-10 opacity-0">
-            Y3 Computer Science Student at
-            <br className="sm:hidden"/> {/* Break line on small screens for better layout */}
-            <span className="block sm:inline">the National University of Singapore</span>
-          </p>
+            <p 
+              ref={titleRef} 
+              className="text-xl md:text-2xl mb-10 opacity-0"
+              style={animatedGradientStyle}
+            >
+              Y3 Computer Science Student at
+              <br className="sm:hidden"/> {/* Break line on small screens for better layout */}
+              <span className="block sm:inline">the National University of Singapore</span>
+            </p>
 
           <div ref={linksRef} className="flex justify-center space-x-6">
             <a
@@ -133,17 +164,19 @@ export default function HomePage() {
               aria-label="Resume"
             >
               <ResumeIcon />
-              <span className="group-hover:underline">My Resume</span>
+              <span className="group-hover:underline transition-all duration-200
+                    inline-block hover:scale-105">My Resume</span>
             </a>
             <a
               href="https://www.linkedin.com/in/ryanno3o/" // LinkedIn
               target="_blank"
               rel="noopener noreferrer"
-              className="text-slate-300 hover:text-sky-400 transition-colors duration-300 flex items-center space-x-2 group"
+              className="text-slate-300 hover:text-sky-400 transition-colors duration-300 flex items-center space-x-2 group "
               aria-label="LinkedIn Profile"
             >
               <LinkedinIcon />
-              <span className="group-hover:underline">LinkedIn</span>
+              <span className="group-hover:underline transition-all duration-200
+                    inline-block hover:scale-105">LinkedIn</span>
             </a>
             <a
               href="https://github.com/bipplane" // GitHub link
@@ -153,7 +186,8 @@ export default function HomePage() {
               aria-label="GitHub Profile"
             >
               <GithubIcon />
-              <span className="group-hover:underline">GitHub</span>
+              <span className="group-hover:underline transition-all duration-200
+                    inline-block hover:scale-105">GitHub</span>
             </a>
              <a
               href="mailto:ryanchen@live.com.sg" // Email
@@ -163,7 +197,8 @@ export default function HomePage() {
               aria-label="Email Address"
             >
               <EmailIcon />
-                <span className="group-hover:underline">Email Me!</span>
+                <span className="group-hover:underline transition-all duration-200
+                    inline-block hover:scale-105">Email Me!</span>
             </a>
           </div>
         </div>
