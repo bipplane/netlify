@@ -9,7 +9,8 @@ gsap.registerPlugin(ScrollTrigger);
 export default function ProjectPage() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
-  const descriptionRef = useRef<HTMLParagraphElement>(null);
+  const descriptionRef = useRef<HTMLDivElement>(null);
+  const placeholderRef = useRef<HTMLDivElement>(null);
   const imagesRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -49,23 +50,24 @@ export default function ProjectPage() {
   }, []);
 
   return (
-      <div
-        ref={sectionRef} id="projects"
-        className=" min-h-screen bg-gradient-to-br from-slate-900 to-slate-800 text-white p-8 antialiased flex flex-col items-center pt-24 md:pt-28"
-      >
-        <div className="w-full max-w-3xl">
-            <h2 ref={headingRef} className="text-4xl md:text-5xl font-bold mb-6 text-center opacity-0 text-transparent bg-clip-text bg-linear-to-r from-cyan-200 via-blue-400 to-indigo-300 brightness-90 pb-1">
-            Projects
-          </h2>
-          <div ref={descriptionRef} className="text-lg md:text-xl text-slate-300 leading-relaxed mb-12 opacity-0 text-justify">
-            <p className="mb-4">
-              WIP bruh lmao
-            </p>
-          </div>
+    <section ref={sectionRef} id="projects" className="py-20 md:py-28 bg-gradient-to-br from-slate-700 via-slate-800 to-slate-900 text-white p-8 antialiased flex flex-col items-center">
+      <div className="w-full max-w-3xl">
+          <h2 ref={headingRef} className="text-4xl md:text-5xl font-bold mb-6 text-center opacity-0 text-transparent bg-clip-text bg-gradient-to-r from-cyan-200 via-blue-400 to-indigo-300 brightness-90 pb-1">
+          Projects
+        </h2>
+        <div ref={descriptionRef} className="text-lg md:text-xl text-slate-300 leading-relaxed mb-12 opacity-0 text-justify">
+          <p className="mb-4">
+            WIP bruh lmao
+          </p>
         </div>
-        <footer className="mt-auto pt-8 text-xs text-slate-500 text-center">
-          Ryan Chen - Computer Science @ NUS
-        </footer>
       </div>
+
+      {/*delete ts once more stuff is added*/}
+      <div ref={placeholderRef} className="text-lg md:text-xl text-slate-300 leading-relaxed mb-100 opacity-0 text-justify"></div> 
+
+      <footer className="mt-auto pt-8 text-xs text-slate-500 text-center">
+        Ryan Chen - Computer Science @ NUS
+      </footer>
+    </section>
   );
 }

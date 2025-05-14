@@ -1,4 +1,3 @@
-// components/header.tsx
 'use client';
 
 import Link from 'next/link';
@@ -10,6 +9,7 @@ export default function Header() {
   const navLinks = [
     { name: 'Home', href: '/', sectionId: 'home', basePage: '/' },
     { name: 'About Me', href: '/#about-me', sectionId: 'about-me', basePage: '/' },
+    { name: 'Experience', href: '/#experience', sectionId: 'experience', basePage: '/' },
     { name: 'Projects', href: '/#projects', sectionId: 'projects', basePage: '/' },
   ];
 
@@ -42,11 +42,8 @@ export default function Header() {
 
   return (
     <header className="bg-slate-800/80 backdrop-blur-md text-white sticky top-0 z-50 shadow-lg">
-      <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
-        <Link href="/" className="text-2xl font-bold text-sky-300 hover:text-sky-200 transition-colors text-purple-400">
-          Ryan Chen
-        </Link>
-        <ul className="flex space-x-6 items-center">
+      <nav className="container mx-auto px-6 py-4 flex justify-center items-center">
+        <ul className="flex space-x-8 items-center">
           {navLinks.map((linkItem) => {
             let isActive = false;
             if (linkItem.sectionId && linkItem.basePage === pathname) {
