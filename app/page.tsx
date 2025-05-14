@@ -155,50 +155,46 @@ export default function HomePage() {
               <span className="block sm:inline">the National University of Singapore</span>
             </p>
 
-          <div ref={linksRef} className="flex justify-center space-x-6">
+          <div ref={linksRef} className="flex flex-col sm:flex-row justify-center items-center sm:space-x-6 space-y-4 sm:space-y-0">
             <a
               href="files/resume.pdf" // Resume
               target="_blank"
               rel="noopener noreferrer"
-              className="text-slate-300 hover:text-sky-400 transition-colors duration-300 flex items-center space-x-2 group"
+              className="text-slate-300 hover:text-sky-400 transition-all duration-300 flex items-center space-x-2 group w-full sm:w-auto justify-center sm:justify-start"
               aria-label="Resume"
             >
               <ResumeIcon />
-              <span className="group-hover:underline transition-all duration-200
-                    inline-block hover:scale-105">My Resume</span>
+              <span className="group-hover:underline transition-all duration-200 hover:scale-105">My Resume</span>
             </a>
             <a
               href="https://www.linkedin.com/in/ryanno3o/" // LinkedIn
               target="_blank"
               rel="noopener noreferrer"
-              className="text-slate-300 hover:text-sky-400 transition-colors duration-300 flex items-center space-x-2 group "
+              className="text-slate-300 hover:text-sky-400 transition-all duration-300 flex items-center space-x-2 group w-full sm:w-auto justify-center sm:justify-start"
               aria-label="LinkedIn Profile"
             >
               <LinkedinIcon />
-              <span className="group-hover:underline transition-all duration-200
-                    inline-block hover:scale-105">LinkedIn</span>
+              <span className="group-hover:underline transition-all duration-200 hover:scale-105">LinkedIn</span>
             </a>
             <a
               href="https://github.com/bipplane" // GitHub link
               target="_blank"
               rel="noopener noreferrer"
-              className="text-slate-300 hover:text-sky-400 transition-colors duration-300 flex items-center space-x-2 group"
+              className="text-slate-300 hover:text-sky-400 transition-all duration-300 flex items-center space-x-2 group w-full sm:w-auto justify-center sm:justify-start"
               aria-label="GitHub Profile"
             >
               <GithubIcon />
-              <span className="group-hover:underline transition-all duration-200
-                    inline-block hover:scale-105">GitHub</span>
+              <span className="group-hover:underline transition-all duration-200 hover:scale-105">GitHub</span>
             </a>
-             <a
+            <a
               href="mailto:ryanchen@live.com.sg" // Email
               target="_blank"
               rel="noopener noreferrer"
-              className="text-slate-300 hover:text-sky-400 transition-colors duration-300 flex items-center space-x-2 group"
+              className="text-slate-300 hover:text-sky-400 transition-all duration-300 flex items-center space-x-2 group w-full sm:w-auto justify-center sm:justify-start"
               aria-label="Email Address"
             >
               <EmailIcon />
-                <span className="group-hover:underline transition-all duration-200
-                    inline-block hover:scale-105">Email Me!</span>
+              <span className="group-hover:underline transition-all duration-200 hover:scale-105">Email Me!</span>
             </a>
           </div>
         </div>

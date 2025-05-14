@@ -41,9 +41,9 @@ export default function Header() {
 
 
   return (
-    <header className="bg-slate-900/80 backdrop-blur-md text-white sticky top-0 z-50 shadow-lg">
-      <nav className="container mx-auto px-6 py-4 flex justify-center items-center">
-        <ul className="flex space-x-8 items-center">
+    <header className="bg-slate-900/80 backdrop-blur-md text-white sticky top-0 z-50 shadow-lg w-full overflow-x-hidden">
+      <nav className="container mx-auto px-4 sm:px-6 py-4 flex justify-center items-center">
+        <ul className="flex flex-wrap justify-center space-x-4 sm:space-x-8 items-center">
           {navLinks.map((linkItem) => {
             let isActive = false;
             if (linkItem.sectionId && linkItem.basePage === pathname) {
@@ -52,12 +52,12 @@ export default function Header() {
             }
 
             return (
-              <li key={linkItem.name}>
+              <li key={linkItem.name} className="whitespace-nowrap">
                 <Link
                   href={linkItem.href}
                   onClick={(e) => handleLinkClick(e, linkItem.href, linkItem.sectionId, linkItem.basePage)}
                   className={`
-                    text-lg cursor-pointer
+                    text-base sm:text-lg cursor-pointer
                     hover:text-sky-300
                     transition-all duration-200
                     inline-block hover:scale-105

@@ -8,6 +8,7 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: 'Ryan Chen - CS @ NUS ',
   description: 'Personal website',
+  viewport: 'width=device-width, initial-scale=1.0, maximum-scale=1.0',
 };
 
 export default function RootLayout({
@@ -17,9 +18,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-slate-900`}>
+      <body className={`${inter.className} bg-slate-900 overflow-x-hidden`}>
         <Header />
-        <main>{children}</main>
+        <main className="overflow-x-hidden w-full">{children}</main>
       </body>
     </html>
   );
