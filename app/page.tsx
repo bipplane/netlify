@@ -68,6 +68,7 @@ export default function HomePage() {
   const nameRef = useRef<HTMLHeadingElement>(null);
   const titleRef = useRef<HTMLParagraphElement>(null);
   const linksRef = useRef<HTMLDivElement>(null);
+  const isFlipping = useRef(false);
 
   useEffect(() => {
     const tl = gsap.timeline();
@@ -155,6 +156,44 @@ export default function HomePage() {
     }
   }, []);
 
+  // Function to handle double-click on name
+  const handleNameDoubleClick = () => {
+    if (nameRef.current && !isFlipping.current) {
+      isFlipping.current = true;
+      
+      // Create a flip animation
+      gsap.to(nameRef.current, {
+        rotationY: 360,
+        duration: 0.8,
+        ease: "power2.inOut",
+        onComplete: () => {
+          // Reset rotation after animation completes
+          gsap.set(nameRef.current, { rotationY: 0 });
+          isFlipping.current = false;
+        }
+      });
+    }
+  };
+
+  // Auto-flipping animation
+  useEffect(() => {
+    const triggerFlip = () => {
+      if (nameRef.current && !isFlipping.current) {
+        handleNameDoubleClick();
+      }
+      
+      const nextFlipDelay = Math.floor(Math.random() * 10000) + 10000;
+      return nextFlipDelay;
+    };
+    
+    let timeoutId = setTimeout(function autoFlip() {
+      const nextDelay = triggerFlip();
+      timeoutId = setTimeout(autoFlip, nextDelay);
+    }, Math.floor(Math.random() * 5000) + 10000);
+    
+    return () => clearTimeout(timeoutId);
+  }, []);
+
   return (
     <>
       {/* This Head component is for the browser tab title and meta description */}
@@ -166,8 +205,13 @@ export default function HomePage() {
 
       <section id="home" className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-slate-900 to-slate-700 text-white p-8 antialiased">
         <div className="text-center">
-            <h1 ref={nameRef} className="text-5xl md:text-7xl font-bold mb-3 pb-3 opacity-0 brightness-90 select-none">
-            Ryan Chen
+            <h1 
+              ref={nameRef} 
+              className="text-5xl md:text-7xl font-bold mb-3 opacity-0 brightness-90 select-none pb-5 relative"
+              style={{ perspective: '1000px', transformStyle: 'preserve-3d' }}
+              onDoubleClick={handleNameDoubleClick}
+            >
+              Ryan Chen
             </h1>
             <p 
               ref={titleRef} 

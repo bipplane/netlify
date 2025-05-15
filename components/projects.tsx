@@ -164,7 +164,7 @@ export default function ProjectPage() {
   return (
     <section ref={sectionRef} id="projects" className="py-16 md:py-20 bg-gradient-to-br from-slate-700 via-slate-800 to-slate-900 text-white p-8 antialiased flex flex-col items-center">
       <div className="w-full max-w-6xl">
-        <h2 ref={headingRef} className="text-4xl md:text-5xl font-bold mb-6 text-center opacity-0 text-transparent bg-clip-text bg-gradient-to-r from-cyan-200 via-blue-400 to-indigo-300 brightness-90">
+        <h2 ref={headingRef} className="text-4xl md:text-5xl font-bold mb-6 text-center opacity-0 text-transparent bg-clip-text bg-gradient-to-r from-cyan-200 via-blue-400 to-indigo-300 brightness-90 select-none">
           Projects
         </h2>
 

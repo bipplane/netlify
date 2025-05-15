@@ -94,7 +94,7 @@ export default function WorkExperienceSection() {
   return (
     <section ref={sectionRef} id="experience" className="py-16 md:py-20 bg-gradient-to-bl from-slate-900 via-slate-800 to-slate-700 text-white p-4 sm:p-8 antialiased flex flex-col items-center w-full overflow-hidden">
       <div className="w-full max-w-4xl px-2 sm:px-0">
-        <h2 ref={headingRef} className="text-4xl md:text-5xl font-bold mb-16 text-center opacity-0 text-transparent bg-clip-text bg-gradient-to-r from-cyan-200 via-blue-400 to-indigo-300 brightness-90 pb-1">
+        <h2 ref={headingRef} className="text-4xl md:text-5xl font-bold mb-16 text-center opacity-0 text-transparent bg-clip-text bg-gradient-to-r from-cyan-200 via-blue-400 to-indigo-300 brightness-90 pb-1 select-none">
           Work Experience
         </h2>
         
@@ -121,7 +121,7 @@ export default function WorkExperienceSection() {
                 </div>
                 
                 {/* Center: Timeline dot */}
-                <div className="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/3 w-5 h-5 bg-stone-100 rounded-full border-4 border-slate-800 z-10 shadow-glow duration-200 hover:scale-110"></div>
+                <div className="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/3 w-5 h-5 bg-stone-100 rounded-full border-4 border-slate-800 z-10 shadow-glow duration-200 hover:scale-140"></div>
                 
                 {/* Right side: Company info */}
                 <div className="col-span-4 pl-30">
