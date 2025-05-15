@@ -68,12 +68,34 @@ export default function ProjectPage() {
     card.style.boxShadow = `
       0 10px 30px -15px rgba(2, 12, 27, 0.7),
       ${tiltY/2}px ${tiltX/2}px 20px -15px rgba(56, 189, 248, 0.2)`;
+
+    // GSAP animations for button and tag on hover
+    const button = card.querySelector('.view-code-button');
+    const tag = card.querySelector('.project-tag');
+
+    if (button) {
+      gsap.to(button, { scale: 1.1, duration: 0.3, ease: 'power2.out' });
+    }
+    if (tag) {
+      gsap.to(tag, { scale: 1.05, brightness: 1.1, duration: 0.3, ease: 'power2.out' });
+    }
   };
   
   const handleMouseLeave = (e: React.MouseEvent<HTMLDivElement>) => {
     const card = e.currentTarget;
     card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
     card.style.boxShadow = '0 10px 30px -15px rgba(2, 12, 27, 0.7)';
+
+    // Revert GSAP animations
+    const button = card.querySelector('.view-code-button');
+    const tag = card.querySelector('.project-tag');
+
+    if (button) {
+      gsap.to(button, { scale: 1, duration: 0.3, ease: 'power2.inOut' });
+    }
+    if (tag) {
+      gsap.to(tag, { scale: 1, brightness: 1, duration: 0.3, ease: 'power2.inOut' });
+    }
   };
 
   useEffect(() => {
@@ -165,13 +187,6 @@ export default function ProjectPage() {
               onMouseLeave={handleMouseLeave}
               style={{ transformStyle: 'preserve-3d', transition: 'transform 0.2s ease-out, box-shadow 0.2s ease-out' }}
             >
-              {/* Featured tag */}
-              {project.tag && (
-                <div className="absolute top-4 right-4 z-10 bg-gradient-to-r from-cyan-400 to-blue-500 text-white text-xs px-3 py-1 rounded-full font-medium shadow-lg">
-                  {project.tag}
-                </div>
-              )}
-              
               {/* Image with overlay */}
               <div className="relative h-48 overflow-hidden">
                 {project.image ? (
@@ -195,17 +210,26 @@ export default function ProjectPage() {
                 <h3 className="text-xl font-bold mb-3 text-white">{project.title}</h3>
                 <p className="text-slate-300 mb-4 flex-grow">{project.description}</p>
                 
-                {/* Links */}
-                <div className="flex gap-3 mt-auto" style={{ transform: 'translateZ(40px)' }}>
-                  {project.codeLink && (
-                    <Link 
-                      href={project.codeLink} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center px-4 py-2 bg-slate-700 rounded-md text-white text-sm font-medium hover:bg-slate-600 transition-all duration-300 hover:scale-105"
-                    >
-                      View Code
-                    </Link>
+                {/* Links and Tag container */}
+                <div className="flex items-center justify-between mt-auto pt-3" style={{ transform: 'translateZ(40px)' }}> 
+                  <div> {/* View Code (left side) */}
+                    {project.codeLink && (
+                      <Link 
+                        href={project.codeLink} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="view-code-button inline-flex items-center px-4 py-2 bg-slate-700 rounded-md text-white text-sm font-medium hover:bg-slate-600 transition-all duration-300"
+                      >
+                        View Code
+                      </Link>
+                    )}
+                  </div>
+                  
+                  {/* Tag (right side) */}
+                  {project.tag && (
+                    <div className="project-tag text-xs px-3 py-2 rounded-full font-medium shadow-lg bg-gradient-to-r from-cyan-400 to-blue-500 text-white select-none">
+                      {project.tag}
+                    </div>
                   )}
                 </div>
               </div>

@@ -121,7 +121,7 @@ export default function WorkExperienceSection() {
                 </div>
                 
                 {/* Center: Timeline dot */}
-                <div className="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/3 w-5 h-5 bg-stone-100 rounded-full border-4 border-slate-800 z-10 shadow-glow"></div>
+                <div className="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/3 w-5 h-5 bg-stone-100 rounded-full border-4 border-slate-800 z-10 shadow-glow duration-200 hover:scale-110"></div>
                 
                 {/* Right side: Company info */}
                 <div className="col-span-4 pl-30">

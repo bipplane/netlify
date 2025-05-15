@@ -121,7 +121,6 @@ export default function HomePage() {
       if (typeof window !== 'undefined' && window.location.hash) {
         const hash = window.location.hash.substring(1); // Remove #
         if (hash) {
-          // Delay slightly to ensure DOM is ready and layout is stable
           setTimeout(() => scrollToSectionWithOffset(hash), 100);
         }
       }
@@ -167,12 +166,12 @@ export default function HomePage() {
 
       <section id="home" className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-slate-900 to-slate-700 text-white p-8 antialiased">
         <div className="text-center">
-            <h1 ref={nameRef} className="text-5xl md:text-7xl font-bold mb-3 pb-3 opacity-0 brightness-90">
+            <h1 ref={nameRef} className="text-5xl md:text-7xl font-bold mb-3 pb-3 opacity-0 brightness-90 select-none">
             Ryan Chen
             </h1>
             <p 
               ref={titleRef} 
-              className="text-xl md:text-2xl mb-10 opacity-0"
+              className="text-xl md:text-2xl mb-10 opacity-0 select-none"
               style={animatedGradientStyle}
             >
               Y3 Computer Science Student at
