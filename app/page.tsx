@@ -182,7 +182,7 @@ export default function HomePage() {
         handleNameDoubleClick();
       }
       
-      const nextFlipDelay = Math.floor(Math.random() * 10000) + 10000;
+      const nextFlipDelay = Math.floor(Math.random() * 18000) + 2000;
       return nextFlipDelay;
     };
     
@@ -228,7 +228,7 @@ export default function HomePage() {
               href="files/resume.pdf" // Resume
               target="_blank"
               rel="noopener noreferrer"
-              className="text-slate-300 hover:text-sky-400 transition-all duration-300 flex items-center space-x-2 group w-full sm:w-auto justify-center sm:justify-start"
+              className="text-slate-300 hover:text-sky-400 transition-all duration-300 flex items-center space-x-2 group w-auto justify-center px-4 py-2"
               aria-label="Resume"
             >
               <ResumeIcon/>
@@ -238,7 +238,7 @@ export default function HomePage() {
               href="https://www.linkedin.com/in/ryanno3o/" // LinkedIn
               target="_blank"
               rel="noopener noreferrer"
-              className="text-slate-300 hover:text-sky-400 transition-all duration-300 flex items-center space-x-2 group w-full sm:w-auto justify-center sm:justify-start"
+              className="text-slate-300 hover:text-sky-400 transition-all duration-300 flex items-center space-x-2 group w-auto justify-center px-4 py-2"
               aria-label="LinkedIn Profile"
             >
               <LinkedinIcon/>
@@ -248,7 +248,7 @@ export default function HomePage() {
               href="https://github.com/bipplane" // GitHub link
               target="_blank"
               rel="noopener noreferrer"
-              className="text-slate-300 hover:text-sky-400 transition-all duration-300 flex items-center space-x-2 group w-full sm:w-auto justify-center sm:justify-start"
+              className="text-slate-300 hover:text-sky-400 transition-all duration-300 flex items-center space-x-2 group w-auto justify-center px-4 py-2"
               aria-label="GitHub Profile"
             >
               <GithubIcon/>
@@ -258,7 +258,7 @@ export default function HomePage() {
               href="mailto:ryanchen@live.com.sg" // Email
               target="_blank"
               rel="noopener noreferrer"
-              className="text-slate-300 hover:text-sky-400 transition-all duration-300 flex items-center space-x-2 group w-full sm:w-auto justify-center sm:justify-start"
+              className="text-slate-300 hover:text-sky-400 transition-all duration-300 flex items-center space-x-2 group w-auto justify-center px-4 py-2"
               aria-label="Email Address"
             >
               <EmailIcon/>
