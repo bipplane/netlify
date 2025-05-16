@@ -276,7 +276,7 @@ export default function HomePage() {
       <GradientDivider/>
       <ProjectsSection/>
 
-        <footer className="absolute bottom-4 text-xs text-slate-500 text-center w-full">
+        <footer className="absolute bottom-4 pt-8 text-xs text-slate-500 text-center w-full">
           Built with Next.js, Tailwind CSS & GSAP.
         </footer>
     </>
