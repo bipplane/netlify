@@ -266,7 +266,9 @@ export default function HomePage() {
             </a>
           </div>
         </div>
+        
       </section>
+
       <GradientDivider/>
       <AboutSection/>
 
@@ -276,9 +278,9 @@ export default function HomePage() {
       <GradientDivider/>
       <ProjectsSection/>
 
-        <footer className="absolute bottom-4 pt-8 text-xs text-slate-500 text-center w-full">
-          Built with Next.js, Tailwind CSS & GSAP.
-        </footer>
+      <footer className="absolute bottom-0.5 pt-8 text-xs text-slate-500 text-center w-full">
+        Built with Next.js, Tailwind CSS & GSAP.
+      </footer>   
     </>
   );
 }
