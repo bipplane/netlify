@@ -3,7 +3,7 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { LinkedinIcon, GithubIcon, EmailIcon } from '@/app/page';
+import { LinkedinIcon, GithubIcon, EmailIcon } from '@/components/icons';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -70,20 +70,20 @@ export default function EndPageSection() {
         </h2>
         <div ref={descriptionRef} className="text-lg md:text-xl text-slate-300 leading-relaxed mb-10 opacity-0 text-justify max-w-3xl mx-auto">
           <p className="mb-3">
-            You scrolled to the end! Thanks for checking out my website &nbsp; (´｡• ᵕ •｡`)❤️
+            You scrolled till the end! Thanks for checking out my website~ &nbsp; (´｡• ᵕ •｡`)❤️
           </p>
             <p>
             I&apos;m always excited to connect with new people! Whether you want to chat about CS, collaborate on stuff, or make an online friend, don&apos;t hesitate to reach out through any of my socials!
             </p>
         </div>
         
-        {/* Links container: Centered */}
-        <div ref={linksRef} className="w-full flex flex-col items-center space-y-3 md:max-w-xs self-center mt-4">
+        {/* Links container */}
+        <div ref={linksRef} className="w-full flex flex-col sm:flex-row items-center justify-center space-y-3 sm:space-y-0 sm:space-x-6 mt-4">
           <a
             href="https://www.linkedin.com/in/ryanno3o/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-slate-200 hover:text-sky-300 transition-all duration-300 flex items-center space-x-3 group w-full justify-center px-5 py-3 border border-slate-600 rounded-lg hover:border-sky-500 hover:bg-slate-700/50"
+            className="text-slate-200 hover:text-sky-300 transition-all duration-300 flex items-center space-x-3 group w-auto sm:w-44 justify-center px-5 py-3 border border-slate-600 rounded-lg hover:border-sky-500 hover:bg-slate-700/50"
             aria-label="LinkedIn Profile"
           >
             <LinkedinIcon/>
@@ -93,7 +93,7 @@ export default function EndPageSection() {
             href="https://github.com/bipplane"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-slate-200 hover:text-sky-300 transition-all duration-300 flex items-center space-x-3 group w-full justify-center px-5 py-3 border border-slate-600 rounded-lg hover:border-sky-500 hover:bg-slate-700/50"
+            className="text-slate-200 hover:text-sky-300 transition-all duration-300 flex items-center space-x-3 group w-auto sm:w-44 justify-center px-5 py-3 border border-slate-600 rounded-lg hover:border-sky-500 hover:bg-slate-700/50"
             aria-label="GitHub Profile"
           >
             <GithubIcon/>
@@ -103,7 +103,7 @@ export default function EndPageSection() {
             href="mailto:ryanchen@live.com.sg"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-slate-200 hover:text-sky-300 transition-all duration-300 flex items-center space-x-3 group w-full justify-center px-5 py-3 border border-slate-600 rounded-lg hover:border-sky-500 hover:bg-slate-700/50"
+            className="text-slate-200 hover:text-sky-300 transition-all duration-300 flex items-center space-x-3 group w-auto sm:w-44 justify-center px-5 py-3 border border-slate-600 rounded-lg hover:border-sky-500 hover:bg-slate-700/50 hover:scale-110"
             aria-label="Email Address"
           >
             <EmailIcon/>
