@@ -66,14 +66,14 @@ export default function EndPageSection() {
     <section ref={sectionRef} id="contact" className="py-16 md:py-20 bg-gradient-to-bl from-slate-700 via-slate-800 to-slate-900 text-white p-4 sm:p-8 antialiased flex flex-col items-center w-full overflow-hidden min-h-[70vh]">
       <div className="w-full max-w-3xl px-2 sm:px-0 flex flex-col items-center">
         <h2 ref={headingRef} className="text-4xl md:text-5xl font-bold mb-8 text-center opacity-0 text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-purple-300 to-pink-300 brightness-90 pb-10">
-          Let's Connect!
+          Let&apos;s Connect!
         </h2>
         <div ref={descriptionRef} className="text-lg md:text-xl text-slate-300 leading-relaxed mb-10 opacity-0 text-justify max-w-3xl mx-auto">
           <p className="mb-3">
             You scrolled to the end! Thanks for checking out my website &nbsp; (´｡• ᵕ •｡`)❤️
           </p>
             <p>
-            I'm always excited to connect with new people! Whether you want to chat about CS, collaborate on stuff, or make an online friend, don't hesitate to reach out through any of my socials!
+            I&apos;m always excited to connect with new people! Whether you want to chat about CS, collaborate on stuff, or make an online friend, don&apos;t hesitate to reach out through any of my socials!
             </p>
         </div>
         
