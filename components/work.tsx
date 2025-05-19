@@ -94,7 +94,7 @@ export default function WorkExperienceSection() {
   return (
     <section ref={sectionRef} id="experience" className="py-16 md:py-20 bg-gradient-to-bl from-slate-900 via-slate-800 to-slate-700 text-white p-4 sm:p-8 antialiased flex flex-col items-center w-full overflow-hidden">
       <div className="w-full max-w-4xl px-2 sm:px-0">
-        <h2 ref={headingRef} className="text-4xl md:text-5xl font-bold mb-16 text-center opacity-0 text-transparent bg-clip-text bg-gradient-to-r from-cyan-200 via-blue-400 to-indigo-300 brightness-90 pb-1 select-none">
+        <h2 ref={headingRef} className="text-4xl md:text-5xl font-bold mb-16 text-center opacity-0 text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-violet-300 to-purple-400 brightness-90 pb-1">
           Work Experience
         </h2>
         
@@ -127,7 +127,7 @@ export default function WorkExperienceSection() {
                 <div className="col-span-4 pl-30">
                   <div className="flex items-center mb-3 pb-1">
                     {exp.logo && (
-                      <div className="mr-3 bg-white p-1 rounded-md shadow-md flex-shrink-0 transition-transform duration-300 hover:scale-110">
+                      <div className="mr-3 bg-white p-1 rounded-md shadow-md flex-shrink-0 transition-transform duration-300 hover:scale-110 select-none">
                         {isExternalUrl(exp.logo) ? (
                           <Image 
                             src={exp.logo} 

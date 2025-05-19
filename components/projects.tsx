@@ -49,7 +49,6 @@ export default function ProjectPage() {
   const headingRef = useRef<HTMLHeadingElement>(null);
   const descriptionRef = useRef<HTMLDivElement>(null);
   const projectsContainerRef = useRef<HTMLDivElement>(null);
-  const descriptionRef2 = useRef<HTMLDivElement>(null);
 
   // Card tilt effect
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -150,27 +149,18 @@ export default function ProjectPage() {
         '-=0.3'
       );
     }
-
-    if (descriptionRef2.current) {
-      tl.fromTo(
-        descriptionRef2.current,
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.6, ease: 'power4.out' },
-        '+=3.4'
-      );
-    }
   }, []);
 
   return (
     <section ref={sectionRef} id="projects" className="py-16 md:py-20 bg-gradient-to-br from-slate-700 via-slate-800 to-slate-900 text-white p-8 antialiased flex flex-col items-center">
       <div className="w-full max-w-6xl">
-        <h2 ref={headingRef} className="text-4xl md:text-5xl font-bold mb-6 text-center opacity-0 text-transparent bg-clip-text bg-gradient-to-r from-cyan-200 via-blue-400 to-indigo-300 brightness-90 select-none">
+        <h2 ref={headingRef} className="text-4xl md:text-5xl font-bold mb-6 text-center opacity-0 text-transparent bg-clip-text bg-gradient-to-r from-pink-700 via-pink-300 to-indigo-100">
           Projects
         </h2>
 
         <div ref={descriptionRef} className="text-lg md:text-xl text-slate-300 leading-relaxed mb-8 opacity-0 text-center max-w-3xl mx-auto">
           <p className="mb-6">
-            Some cool n good projects of mine!
+            Some of the cool stuff I&apos;ve worked on!
           </p>
         </div>
 
@@ -188,7 +178,7 @@ export default function ProjectPage() {
               style={{ transformStyle: 'preserve-3d', transition: 'transform 0.2s ease-out, box-shadow 0.2s ease-out' }}
             >
               {/* Image with overlay */}
-              <div className="relative h-48 overflow-hidden">
+              <div className="relative h-48 overflow-hidden select-none" style={{ transform: 'translateZ(10px)' }}>
                 {project.image ? (
                   <OptimizedImage 
                     src={project.image} 
@@ -197,7 +187,7 @@ export default function ProjectPage() {
                     height={300}
                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                     style={{ transform: 'translateZ(20px)' }}
-                    objectFit="cover" // Explicitly set objectFit, as OptimizedImage defaults to 'cover' but good to be clear
+                    objectFit="cover"
                   />
                 ) : (
                   <ImageFallback className="w-full h-full" /> // Use ImageFallback for consistency
@@ -211,7 +201,7 @@ export default function ProjectPage() {
                 <p className="text-slate-300 mb-4 flex-grow">{project.description}</p>
                 
                 {/* Links and Tag container */}
-                <div className="flex items-center justify-between mt-auto pt-3" style={{ transform: 'translateZ(40px)' }}> 
+                <div className="flex items-center justify-between mt-auto pt-3 select-none" style={{ transform: 'translateZ(40px)' }}> 
                   <div> {/* View Code (left side) */}
                     {project.codeLink && (
                       <Link 
@@ -237,11 +227,6 @@ export default function ProjectPage() {
           ))}
         </div>
       </div>
-      <div ref={descriptionRef2} className="text-lg md:text-xl text-slate-300 leading-relaxed mb-8 opacity-0 text-center max-w-3xl mx-auto pt-20">
-          <p className="mb-6">
-            That&apos;s all for now! I&apos;m always looking to learn and grow, so if you have any suggestions or feedback for this website, feel free to reach out! ❤️
-          </p>
-        </div>
       <footer className="mt-16 text-xs text-slate-500 text-center">
         Ryan Chen - Computer Science @ NUS
       </footer>

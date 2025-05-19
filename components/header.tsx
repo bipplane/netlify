@@ -42,7 +42,7 @@ export default function Header() {
 
   return (
     <header className="bg-slate-900/80 backdrop-blur-md text-white sticky top-0 z-50 shadow-lg w-full overflow-x-hidden hover:scale-102 duration-500 transition-all">
-      <nav className="container mx-auto px-4 sm:px-6 py-4 flex justify-center items-center">
+      <nav className="container mx-auto px-4 sm:px-6 py-4 flex justify-center items-center select-none">
         <ul className="flex flex-wrap justify-center space-x-4 sm:space-x-8 items-center">
           {navLinks.map((linkItem) => {
             let isActive = false;
