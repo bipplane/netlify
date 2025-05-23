@@ -60,8 +60,8 @@ export default function ProjectPage() {
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
     
-    const tiltX = (y - centerY) / 45;
-    const tiltY = (centerX - x) / 45;
+    const tiltX = (y - centerY) / 35;
+    const tiltY = (centerX - x) / 35;
     
     card.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale3d(1.02, 1.02, 1.02)`;
     card.style.boxShadow = `

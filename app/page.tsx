@@ -41,7 +41,7 @@ const GradientDivider = () => {
       style={{
         background: 'linear-gradient(to right, #38bdf8, #818cf8, #c084fc, #e879f9, #38bdf8)',
         backgroundSize: '200% auto',
-        animation: 'gradientShift 10s ease infinite',
+        animation: 'gradientShift 8s ease infinite',
       }}
     ></div>
   );

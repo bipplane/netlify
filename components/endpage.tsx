@@ -111,7 +111,7 @@ export default function EndPageSection() {
           </a>
         </div>
       </div>
-      <footer className="mt-auto pt-12 pb-6 text-xs text-slate-500 text-center w-full pt-30">
+      <footer className="mt-auto pt-12 pb-6 text-xs text-slate-500 text-center w-full pt-20">
         Ryan Chen - Computer Science @ NUS
       </footer>    
     </section>
