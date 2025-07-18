@@ -70,10 +70,10 @@ export default function EndPageSection() {
         </h2>
         <div ref={descriptionRef} className="text-lg md:text-xl text-slate-300 leading-relaxed mb-10 opacity-0 text-justify max-w-3xl mx-auto">
           <p className="mb-3">
-            You scrolled till the end! Thanks for checking out my website~ &nbsp; (´｡• ᵕ •｡`)❤️
+            YOU SCROLLED TO THE END! Thanks for checking out my website~&nbsp;(´｡• ᵕ •｡`)❤️
           </p>
             <p>
-            I&apos;m always excited to connect with new people! Whether you want to chat about CS, collaborate on stuff, or make an online friend, don&apos;t hesitate to reach out through any of my socials!
+            I&apos;m always excited to connect with new people! Whether you want to chat about CS, collaborate on stuff, or make a friend, please don&apos;t hesitate to reach out through any of my socials!
             </p>
         </div>
         

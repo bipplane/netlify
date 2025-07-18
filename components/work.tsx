@@ -22,8 +22,8 @@ export default function WorkExperienceSection() {
       logo: 'https://www.htx.gov.sg/images/default-source/logos/htx-logo.png?sfvrsn=7f30d9a0_1',
       position: 'Cloud Engineer Intern',
       period: 'May 2025 - Aug 2025',
-      description: 'Current 2025 Summer Internship.',
-      technologies: []
+      description: 'Used Microsoft Power Platform and Workato to automate workflows, enhance data management, and improve operational efficiency.',
+      technologies: ['Power Automate', 'Workato']
     },
     {
       company: 'SmileTutor',

@@ -2,9 +2,11 @@
 
 import { useEffect, useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { OptimizedImage, ImageFallback } from '@/app/imageurl';
+import { link } from 'fs';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -36,6 +38,15 @@ const projectsData = [
   },
   {
     id: 4,
+    title: "EcoTrack",
+    description: "A chrome extension that analyses product sustainability ratings and provides eco-friendly alternatives, with an integrated dashboard and Telegram bot.",
+    image: "/images/ecotrack.jpg",
+    codeLink: "https://devpost.com/software/ecotrack-ewmr75",
+    tag: "Hackathon Project Winner",
+    linkText: "View Devpost"
+  },
+  {
+    id: 5,
     title: "Personal Website",
     description: "Designed and developed my personal website using Next.js, TypeScript, and Tailwind CSS, showcasing expertise and personal interests.",
     image: "https://app.netlify.com/.netlify/images?url=https://d33wubrfki0l68.cloudfront.net/68244f145f369b00085983b5/screenshot_2025-05-14-08-07-31-0000.webp&fit=cover&h=330&q=40&w=528",
@@ -210,7 +221,7 @@ export default function ProjectPage() {
                         rel="noopener noreferrer"
                         className="view-code-button inline-flex items-center px-4 py-2 bg-slate-700 rounded-md text-white text-sm font-medium hover:bg-slate-600 transition-all duration-300"
                       >
-                        View Code
+                        {project.linkText || 'View GitHub'}
                       </Link>
                     )}
                   </div>
